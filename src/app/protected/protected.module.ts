@@ -10,6 +10,11 @@ import { PlanComponent } from './plan/plan.component';
 import { ProtectedComponent } from './protected.component';
 import { PostRegisterComponent } from './post-register/post-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { SportsComponent } from './sports/sports.component';
+import { AlimentaryComponent } from './alimentary/alimentary.component';
+
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     PlanComponent,
     ProtectedComponent,
     PostRegisterComponent,
+    ProfilesComponent,
+    SportsComponent,
+    AlimentaryComponent,
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatTabsModule
   ],
 })
 export class ProtectedModule {}
