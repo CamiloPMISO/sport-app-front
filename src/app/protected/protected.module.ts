@@ -16,6 +16,8 @@ import { SportsComponent } from './sports/sports.component';
 import { AlimentaryComponent } from './alimentary/alimentary.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     ProtectedRoutingModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule,
+    NgChartsModule,
   ],
 })
 export class ProtectedModule {}
