@@ -1,0 +1,68 @@
+<!-- contenido principal y secundario -->
+<div class="container">
+  <div class="row">
+    <!-- col-12 para celulares y col-md-4 para lo demás  -->
+    <div class="col-12 col-md-4">
+      <div class="card">
+        <h2 class="card-header">Plan de Riesgo</h2>
+        <div class="card-body">
+          <h2 class="card-title">Componentes físicos</h2>
+          <div id="divchart" >
+            <canvas id="chart" width="400" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- col-12 para celulares y col-md-8 para lo demás -->
+    <div class="col-12 col-md-8">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-2 w-150">
+            <h2 class="card-header">Componentes fisicos de riesgo</h2>
+            <div class="card-body">
+              <h2 class="card-title"></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card w-150">
+            <h2 class="card-header">Información deportiva</h2>
+            <div class="card-body">
+              <h2 class="card-title"></h2>
+                <p class="card-text"><b>Edad:</b> {{user.edad}}</p>
+                <p class="card-text"><b>Estatura:</b> {{user.estatura}}</p>
+                <p class="card-text"><b>IMC:</b> {{user.imc}}</p>
+                <p class="card-text"><b>Deportes:</b></p>
+                <ul>
+                    <li *ngFor="let sport of user.deportes;">
+                      {{ sport }}
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <hr />
+    </div>
+  </div>
+
+  <!-- sección extra -->
+    <div class="row">
+        <section>
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                        <div class="card-body">
+                        <h2 class="card-title">Caracteristicas del plan de riesgo</h2>
+                        <p class="card-text">{{description.desc}}</p>
+                    </div>
+                </div>
+        </section>
+    </div>
+</div>

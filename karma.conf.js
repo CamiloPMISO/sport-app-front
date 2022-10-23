@@ -36,9 +36,9 @@ module.exports = function (config) {
           '--no-sandbox',
           '--headless',
           '--disable-gpu',
-          '--remote-debugging-port=9222'
-        ]
-      }
+          '--remote-debugging-port=9222',
+        ],
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

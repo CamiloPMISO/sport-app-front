@@ -10,6 +10,7 @@ import { PlanComponent } from './plan/plan.component';
 import { ProtectedComponent } from './protected.component';
 import { PostRegisterComponent } from './post-register/post-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RiskComponent } from './risk/risk.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PlanComponent,
     ProtectedComponent,
     PostRegisterComponent,
+    RiskComponent,
   ],
   imports: [
     CommonModule,
