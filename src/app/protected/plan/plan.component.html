@@ -1,8 +1,10 @@
 <div class="container py-3 text-center">
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
     <h1 class="display-4 fw-normal">Planes sugeridos</h1>
-    <p class="fs-5 text-muted">De acuerdo con la información suministrada, recomendamos los siguientes
-      planes para usted.</p>
+    <p class="fs-5 text-muted">
+      De acuerdo con la información suministrada, recomendamos los siguientes
+      planes para usted.
+    </p>
   </div>
   <br />
   <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -12,10 +14,32 @@
           <h4 class="my-0 fw-normal">Plan gratuito</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">$0 usd<small class="text-muted fw-light">/mes</small></h1>
-          <p class="text-justify">Tienes un plan de entrenamiento personalizado basado en tus características fisiológicas, lugar de residencia e historial deportivo. Recibe planes de alimentación complementarios para una mejor recuperación después del ejercicio. Vas a poder encontrar rutas o eventos de tu interés en los lugares y fechas de tu elección. Si quieres entrenar fuera de casa puedes optar por tener un servicio de acompañamiento específico para tu actividad a realizar. ¡No tienes por qué entrenar solo! </p>
-          <button *ngIf="planActual != 'Gratuito'" type="button" class="w-100 btn btn-lg btn-primary" (click)='cambiarPlan("Gratuito")'>Suscribirme</button>
-          <button *ngIf="planActual == 'Gratuito'" type="button" class="w-100 btn btn-lg btn-outline-primary">Suscrito</button>
+          <h1 class="card-title pricing-card-title">
+            $0 usd<small class="text-muted fw-light">/mes</small>
+          </h1>
+          <p class="text-justify">
+            Tienes un plan de entrenamiento personalizado basado en tus
+            características fisiológicas, lugar de residencia e historial
+            deportivo. Recibe planes de alimentación complementarios para una
+            mejor recuperación después del ejercicio. Vas a poder encontrar
+            rutas o eventos de tu interés en los lugares y fechas de tu
+            elección. Si quieres entrenar fuera de casa puedes optar por tener
+            un servicio de acompañamiento específico para tu actividad a
+            realizar. ¡No tienes por qué entrenar solo!
+          </p>
+          <button
+            *ngIf="planActual != 'Gratuito'"
+            type="button"
+            class="w-100 btn btn-lg btn-primary"
+            (click)="cambiarPlan('Gratuito')">
+            Suscribirme
+          </button>
+          <button
+            *ngIf="planActual == 'Gratuito'"
+            type="button"
+            class="w-100 btn btn-lg btn-outline-primary">
+            Suscrito
+          </button>
         </div>
       </div>
     </div>
@@ -25,10 +49,32 @@
           <h4 class="my-0 fw-normal">Plan intermedio</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">$15 usd<small class="text-muted fw-light">/mes</small></h1>
-          <p class="text-justify">Accede al monitoreo de tu salud en tiempo real conectando tus dispositivos wearables a la aplicación móvil y obtén alertas sobre las condiciones de tu estado de salud en medio del entrenamiento. Tus rutinas serán ajustadas en tiempo real dependiendo tu frecuencia cardiaca, las calorías consumidas y la potencia por Kg que esté siendo utilizada durante la sesión. Recibe notificaciones si se detecta que requieres el insumo de bebida o comida para continuar de forma adecuada con la rutina. </p>
-          <button *ngIf="planActual != 'Intermedio'" type="button" class="w-100 btn btn-lg btn-primary" (click)='cambiarPlan("Intermedio")'>Suscribirme</button>
-          <button *ngIf="planActual == 'Intermedio'" type="button" class="w-100 btn btn-lg btn-outline-primary">Suscrito</button>
+          <h1 class="card-title pricing-card-title">
+            $15 usd<small class="text-muted fw-light">/mes</small>
+          </h1>
+          <p class="text-justify">
+            Accede al monitoreo de tu salud en tiempo real conectando tus
+            dispositivos wearables a la aplicación móvil y obtén alertas sobre
+            las condiciones de tu estado de salud en medio del entrenamiento.
+            Tus rutinas serán ajustadas en tiempo real dependiendo tu frecuencia
+            cardiaca, las calorías consumidas y la potencia por Kg que esté
+            siendo utilizada durante la sesión. Recibe notificaciones si se
+            detecta que requieres el insumo de bebida o comida para continuar de
+            forma adecuada con la rutina.
+          </p>
+          <button
+            *ngIf="planActual != 'Intermedio'"
+            type="button"
+            class="w-100 btn btn-lg btn-primary"
+            (click)="cambiarPlan('Intermedio')">
+            Suscribirme
+          </button>
+          <button
+            *ngIf="planActual == 'Intermedio'"
+            type="button"
+            class="w-100 btn btn-lg btn-outline-primary">
+            Suscrito
+          </button>
         </div>
       </div>
     </div>
@@ -38,10 +84,32 @@
           <h4 class="my-0 fw-normal">Plan premium</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">$29 usd<small class="text-muted fw-light">/mes</small></h1>
-          <p class="text-justify">Recibe un servicio de entrenador personalizado con el que puedes programar sesiones virtuales que se adecuen a tu estilo de entrenamiento y necesidades puesto que el entrenador se basará en tu historia clínica y deportiva para la realización de estas sesiones. Consulta cualquier duda fuera de las sesiones de entrenamiento con tu entrenador de forma virtual o presencial. Accede al servicio de recuperación para recibir las mejores rutinas de descanso y alimentación post rutina. </p>
-          <button *ngIf="planActual != 'Premium'" type="button" class="w-100 btn btn-lg btn-primary" (click)='cambiarPlan("Premium")'>Suscribirme</button>
-          <button *ngIf="planActual == 'Premium'" type="button" class="w-100 btn btn-lg btn-outline-primary">Suscrito</button>
+          <h1 class="card-title pricing-card-title">
+            $29 usd<small class="text-muted fw-light">/mes</small>
+          </h1>
+          <p class="text-justify">
+            Recibe un servicio de entrenador personalizado con el que puedes
+            programar sesiones virtuales que se adecuen a tu estilo de
+            entrenamiento y necesidades puesto que el entrenador se basará en tu
+            historia clínica y deportiva para la realización de estas sesiones.
+            Consulta cualquier duda fuera de las sesiones de entrenamiento con
+            tu entrenador de forma virtual o presencial. Accede al servicio de
+            recuperación para recibir las mejores rutinas de descanso y
+            alimentación post rutina.
+          </p>
+          <button
+            *ngIf="planActual != 'Premium'"
+            type="button"
+            class="w-100 btn btn-lg btn-primary"
+            (click)="cambiarPlan('Premium')">
+            Suscribirme
+          </button>
+          <button
+            *ngIf="planActual == 'Premium'"
+            type="button"
+            class="w-100 btn btn-lg btn-outline-primary">
+            Suscrito
+          </button>
         </div>
       </div>
     </div>
