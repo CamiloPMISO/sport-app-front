@@ -20,7 +20,7 @@ const routes: Routes = [
         component: PostRegisterComponent,
       },
       {
-        path: 'planes',
+        path: 'plans',
         component: PlanComponent,
       },
       {
@@ -32,7 +32,7 @@ const routes: Routes = [
         component: RiskComponent,
       },
       {
-        path: 'perfiles',
+        path: 'profiles',
         component: ProfilesComponent,
       },
     ],
