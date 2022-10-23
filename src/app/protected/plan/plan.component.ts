@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
+import { PlanEnum } from '../models/enums/plan.enum';
 import { PlanService } from './plan.service';
-import { PlanEnum } from './plan.enum';
 
 @Component({
   selector: 'app-plan',
