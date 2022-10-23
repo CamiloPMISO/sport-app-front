@@ -11,15 +11,14 @@ export interface RegisterRequest {
 Interface for the Register Response (can look different, based on your backend api)
 */
 export interface RegisterResponse {
-  status: number;
-  message: string;
+  email: string;
 }
 
 /*
 Interface for the Login Request (can look different, based on your backend api)
 */
 export interface LoginRequest {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -27,7 +26,5 @@ export interface LoginRequest {
 Interface for the Login Response (can look different, based on your backend api)
 */
 export interface LoginResponse {
-  accessToken: string;
-  status: number;
-  message: string;
+  token: string;
 }

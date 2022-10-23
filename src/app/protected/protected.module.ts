@@ -35,7 +35,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ProtectedRoutingModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
   ],
 })
 export class ProtectedModule {}

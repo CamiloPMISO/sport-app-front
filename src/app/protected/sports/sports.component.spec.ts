@@ -11,9 +11,8 @@ describe('SportsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SportsComponent ]
-    })
-    .compileComponents();
+      declarations: [SportsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

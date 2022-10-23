@@ -1,5 +1,5 @@
 export enum PlanEnum {
-    FREE = 'FREE',
-    MEDIUM = 'MEDIUM',
-    PREMIUM = 'PREMIUM',
+  FREE = 'FREE',
+  MEDIUM = 'MEDIUM',
+  PREMIUM = 'PREMIUM',
 }
