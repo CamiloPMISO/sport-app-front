@@ -10,6 +10,7 @@ import { PlanComponent } from './plan/plan.component';
 import { ProtectedComponent } from './protected.component';
 import { PostRegisterComponent } from './post-register/post-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RiskComponent } from './risk/risk.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { SportsComponent } from './sports/sports.component';
 import { AlimentaryComponent } from './alimentary/alimentary.component';
@@ -24,6 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     PlanComponent,
     ProtectedComponent,
     PostRegisterComponent,
+    RiskComponent,
     ProfilesComponent,
     SportsComponent,
     AlimentaryComponent,
