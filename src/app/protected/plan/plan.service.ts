@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-import { URL_BACKEND } from '../../config/config';
+import { TOKEN, URL_BACKEND } from '../../config/config';
+import { PlanRequest } from './plan.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlanService {
-  private urlEndPoint: string = URL_BACKEND + '/v1/planes';
+  private urlEndPoint: string = URL_BACKEND + '/athlete/set_plan';
 
   constructor(private http: HttpClient) {}
 
   updatePlan(plan: string): Observable<any> {
-    return this.http.post(this.urlEndPoint, plan).pipe(
+    let token = localStorage.getItem(TOKEN)
+    console.log(token);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`       
+    })
+    let planRequest: PlanRequest = {plan: plan}
+    return this.http.put(this.urlEndPoint, planRequest, {headers: headers}).pipe(
       catchError(e => {
-        console.error(e.error.mensaje);
+        console.error(e);
         return throwError(() => new Error(e));
       })
     );
