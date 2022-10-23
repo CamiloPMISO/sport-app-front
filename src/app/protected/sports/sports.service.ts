@@ -4,25 +4,23 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { TOKEN, URL_BACKEND } from '../../config/config';
-import { PlanRequest } from './plan.interface';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class PlanService {
+export class SportsService {
 
-  private urlEndPoint: string = URL_BACKEND + '/athlete/set_plan';
+  private urlEndPoint: string = URL_BACKEND + '/athlete';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  updatePlan(plan: string): Observable<any> {
+  getUserInfo(): Observable<any> {
     let token = localStorage.getItem(TOKEN);
     console.log(token);
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`       
     });
-    let planRequest: PlanRequest = {plan: plan}
-    return this.http.put(this.urlEndPoint, planRequest, {headers: headers}).pipe(
+    return this.http.get(this.urlEndPoint, {headers: headers}).pipe(
       catchError(e => {
         console.error(e);
         return throwError(() => new Error(e));
