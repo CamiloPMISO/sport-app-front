@@ -8,6 +8,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/public/auth/auth.service';
+import { Gender, IDType, NutritionType } from './post-register.enums';
+import { City, Country, PostRegisterRequest, Sport } from './post-register.interfaces';
+import { PostRegisterService } from './post-register.service';
 
 @Component({
   selector: 'app-post-register',
@@ -20,17 +23,18 @@ export class PostRegisterComponent implements OnInit {
   formSportInfo!: FormGroup;
   formNutritionInfo!: FormGroup;
 
-  genders: Array<string> = ['Masculino', 'Femenino', 'Otro'];
-  identificationTypes: Array<string> = ['CC', 'Pasaporte'];
-  countries: Array<string> = ['Colombia', 'Brasil', 'Argentina'];
-  cities: Array<string> = ['Bogota', 'Brasilia', 'Buenos Aires'];
-  sports: Array<string> = ['ciclismo', 'atletismo'];
+  genders: Array<string> = ['Masculino', 'Femenino'];
+  identificationTypes: Array<string> = ['TI', 'CC', 'CE', 'Pasaporte'];
+  countries: Array<Country> = [];
+  citiesOfCountryBirth: Array<City> = [];
+  citiesOfCountryRecidence: Array<City> = [];
+  sports: Array<Sport> = [];
   preferences: Array<string> = ['vegetariano', 'vegano', 'ninguno'];
   alergies: Array<string> = [];
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
+    private postRegisterService: PostRegisterService,
     private router: Router
   ) {}
 
@@ -65,6 +69,16 @@ export class PostRegisterComponent implements OnInit {
       alergies: ['', []],
       preferences: ['', [Validators.required]],
     });
+
+    this.postRegisterService.getCountriesAndCities().subscribe( countries => {
+      this.countries = countries;
+    }
+    );
+
+    this.postRegisterService.getSports().subscribe( sports => {
+      this.sports = sports;
+    }
+    );
   }
 
   onCheckboxChange(e: any) {
@@ -91,10 +105,82 @@ export class PostRegisterComponent implements OnInit {
     }
   }
   submit() {
-    console.log(this.formGeneralInfo.value);
-    console.log(this.formDemograficInfo.value);
-    console.log(this.formSportInfo.value);
-    console.log(this.formNutritionInfo.value);
+
+    let athletePostRegister : PostRegisterRequest  = {
+      name : this.formGeneralInfo.value.name,
+      lastName : this.formGeneralInfo.value.lastName,
+      age :  this.formDemograficInfo.value.age,
+      idType : this.getDocumentType(this.formGeneralInfo.value.identificationType),
+      idNumber : this.formGeneralInfo.value.identificationNumber,
+      gender : this.getGender(this.formGeneralInfo.value.gender),
+      weight : this.formSportInfo.value.weight,
+      height : this.formSportInfo.value.height,
+      cityOfBirth : this.formDemograficInfo.value.OriginCity,
+      cityOfResidence : this.formDemograficInfo.value.CurrentCity,
+      sports: this.formSportInfo.value.sports,
+      nutritionType :this.getPreferences(this.formNutritionInfo.value.preferences)
+    }
+
+    this.postRegisterService.addAthletePosRegisterData(athletePostRegister).subscribe( (response: any) => {
+      console.log("Hecho")
+      }
+    )
     this.router.navigate(['../../protected/dashboard']);
+  }
+
+  private getDocumentType(documentType: string): string {
+    let docType: string = '';
+    switch (documentType) {
+      case 'TI':
+        docType = IDType.TI;
+        break;
+      case 'CC':
+        docType = IDType.CC;
+        break;
+      case 'CE':
+        docType = IDType.CE;
+        break;
+      case 'Pasaporte':
+        docType = IDType.PASSPORT;
+        break;
+    }
+    return docType;
+  }
+
+  private getGender(gender: string): string {
+    let gen: string = '';
+    switch (gender) {
+      case 'Masculino':
+        gen = Gender.MALE;
+        break;
+      case 'Femenino':
+        gen = Gender.FEMALE;
+        break;
+    }
+    return gen;
+  }
+
+  private getPreferences(preferences: string): string {
+    let prefer: string = '';
+    switch (preferences) {
+      case 'vegetariano':
+        prefer = NutritionType.VEGETARIAN;
+        break;
+      case 'vegano':
+        prefer = NutritionType.VEGAN;
+        break;
+      case 'ninguno':
+        prefer = NutritionType.NORMAL;
+        break;
+    }
+    return prefer;
+  }
+
+  onSelectedCountryOrigin(countryId : string) {
+    this.citiesOfCountryBirth = this.countries.find(country => country.id === countryId)?.cities || [];
+  }
+
+  onSelectedCountryResidence(countryId : string) {
+    this.citiesOfCountryRecidence = this.countries.find(country => country.id === countryId)?.cities || [];
   }
 }
