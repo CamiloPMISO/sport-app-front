@@ -9,6 +9,9 @@ import { SportGroup } from './sport-group';
   styleUrls: ['./sports.component.css'],
 })
 export class SportsComponent implements OnInit {
+  descripcionRutina: string =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim sed tellus in sagittis. Duis a urna elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam luctus consequat augue, sed venenatis leo dignissim sit amet. Maecenas viverra dui nec tincidunt interdum. Maecenas sed eleifend lectus. Nunc quis cursus dui. Sed sit amet vestibulum dolor. Etiam nec aliquet risus.';
+
   constructor() {}
 
   ngOnInit() {}
