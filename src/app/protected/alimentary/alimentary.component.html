@@ -1,3 +1,58 @@
-<p>
-  alimentary works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h3>Compatibilidad con grupos de alimentos</h3>
+      <canvas
+        baseChart
+        [type]="'pie'"
+        [datasets]="pieChartDatasets"
+        [labels]="pieChartLabels"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+    <div class="col-6">
+      <h3>Grupo de alimentos recomendados</h3>
+      <mat-expansion-panel *ngFor="let p of gruposAlimentos">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>{{ p.name }}</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ p.food }}
+      </mat-expansion-panel>
+      <h3>Limitaciones nutricionales</h3>
+      <ul>
+        <li *ngFor="let l of limitaciones">{{ l }}</li>
+      </ul>
+    </div>
+    <div class="col-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <img
+              class="profile-picture"
+              src="https://images.vexels.com/media/users/3/141261/isolated/lists/ab412bbd60db835095b0088420a85972-deportista-trotar.png" />
+          </div>
+          <div class="col-6">
+            <p>Edad</p>
+          </div>
+          <div class="col-6">
+            <p>Estatura</p>
+          </div>
+          <div class="col-6">
+            <p>Peso</p>
+          </div>
+          <div class="col-6">
+            <p>IMC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Dietas recomendadas</h3>
+    <p>{{ dietasRecomendadas }}</p>
+  </div>
+</div>

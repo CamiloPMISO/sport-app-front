@@ -11,22 +11,12 @@ import {
   RegisterResponse,
 } from '../interfaces';
 
-export const fakeRegisterResponse: RegisterResponse = {
-  status: 200,
-  message: 'Registration sucessfull.',
-};
-
-export const fakeLoginResponse: LoginResponse = {
-  accessToken:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-  status: 200,
-  message: 'login sucessfull.',
-};
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private backUrl: string = 'http://localhost:3000/api/v1';
+
   constructor(
     private http: HttpClient,
     private snackbar: MatSnackBar,
@@ -34,24 +24,27 @@ export class AuthService {
   ) {}
 
   register(registerRequest: RegisterRequest): Observable<RegisterResponse> {
-    // TODO
-    return of(fakeRegisterResponse).pipe(
-      tap((res: RegisterResponse) =>
-        this.snackbar.open(`Usuario registrado exitosamente`, 'Close', {
-          duration: 2000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-        })
-      )
-    );
+    return this.http
+      .post<RegisterResponse>(`${this.backUrl}/athlete`, registerRequest)
+      .pipe(
+        tap((res: RegisterResponse) =>
+          this.snackbar.open(`Usuario registrado exitosamente`, 'Close', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
+        )
+      );
   }
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
-    return of(fakeLoginResponse).pipe(
-      tap((res: LoginResponse) =>
-        localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken)
-      )
-    );
+    return this.http
+      .post<LoginResponse>(`${this.backUrl}/athlete/login`, loginRequest)
+      .pipe(
+        tap((res: LoginResponse) =>
+          localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.token)
+        )
+      );
   }
   /*
    Get the user fromt the token payload
