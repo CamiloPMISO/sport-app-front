@@ -1,58 +1,78 @@
+<br />
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <h3>Compatibilidad con grupos de alimentos</h3>
-      <canvas
-        baseChart
-        [type]="'pie'"
-        [datasets]="pieChartDatasets"
-        [labels]="pieChartLabels"
-        [options]="pieChartOptions"
-        [plugins]="pieChartPlugins"
-        [legend]="pieChartLegend">
-      </canvas>
+      <div class="card">
+        <h3 class="card-header">Compatibilidad con grupos de alimentos</h3>
+        <div class="card-body">
+          <canvas
+            baseChart
+            [type]="'pie'"
+            [datasets]="pieChartDatasets"
+            [labels]="pieChartLabels"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+        </div>
+      </div>
     </div>
-    <div class="col-6">
-      <h3>Grupo de alimentos recomendados</h3>
-      <mat-expansion-panel *ngFor="let p of gruposAlimentos">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h3>{{ p.name }}</h3>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        {{ p.food }}
-      </mat-expansion-panel>
-      <h3>Limitaciones nutricionales</h3>
-      <ul>
-        <li *ngFor="let l of limitaciones">{{ l }}</li>
-      </ul>
+    <div class="col-5">
+      <div class="card">
+        <h3 class="card-header">Grupo de alimentos recomendados</h3>
+        <div class="card-body">
+          <mat-expansion-panel *ngFor="let p of gruposAlimentos">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3>{{ p.name }}</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            {{ p.food }}
+          </mat-expansion-panel>
+        </div>
+        <br />
+        <div class="card">
+          <h3 class="card-header">Limitaciones nutricionales</h3>
+          <div class="card-body">
+            <ul>
+              <li *ngFor="let l of limitaciones">{{ l }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <img
-              class="profile-picture"
-              src="https://images.vexels.com/media/users/3/141261/isolated/lists/ab412bbd60db835095b0088420a85972-deportista-trotar.png" />
-          </div>
-          <div class="col-6">
-            <p>Edad</p>
-          </div>
-          <div class="col-6">
-            <p>Estatura</p>
-          </div>
-          <div class="col-6">
-            <p>Peso</p>
-          </div>
-          <div class="col-6">
-            <p>IMC</p>
+    <div class="col-3">
+      <div class="card">
+        <h3 class="card-header">Información deportista</h3>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <img
+                class="profile-picture"
+                src="https://images.vexels.com/media/users/3/141261/isolated/lists/ab412bbd60db835095b0088420a85972-deportista-trotar.png" />
+            </div>
+            <div class="col-6">
+              <p>Edad</p>
+            </div>
+            <div class="col-6">
+              <p>Estatura</p>
+            </div>
+            <div class="col-6">
+              <p>Peso</p>
+            </div>
+            <div class="col-6">
+              <p>IMC</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <h3>Dietas recomendadas</h3>
-    <p>{{ dietasRecomendadas }}</p>
+  <br />
+  <div class="card">
+    <h3 class="card-header">Dietas recomendadas</h3>
+    <div class="card-body">
+      <p>{{ dietasRecomendadas }}</p>
+    </div>
   </div>
 </div>
