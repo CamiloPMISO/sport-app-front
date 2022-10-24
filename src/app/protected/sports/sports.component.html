@@ -1,3 +1,75 @@
-<p>
-  sports works!
-</p>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <h3 class="card-header">Nivel de esfuerzo para cada plan</h3>
+        <div class="card-body">
+          <canvas
+            baseChart
+            [datasets]="polarAreaChartDatasets"
+            [labels]="polarAreaChartLabels"
+            [legend]="polarAreaLegend"
+            [options]="polarAreaOptions"
+            [type]="'polarArea'">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="card">
+        <h3 class="card-header">Planes de entrenamiento recomendados</h3>
+        <div class="card-body">
+          <mat-expansion-panel *ngFor="let p of gruposPlanes">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3>{{ p.name }}</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            {{ p.description }}
+          </mat-expansion-panel>
+        </div>
+        <br />
+      </div>
+      <h3 class="card-header">Información del perfil deportivo</h3>
+      <div class="card-body">
+        <ul>
+          <li *ngFor="let l of infoPerfil">{{ l }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <h3 class="card-header">Información deportista</h3>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <img
+                class="profile-picture"
+                src="https://images.vexels.com/media/users/3/141261/isolated/lists/ab412bbd60db835095b0088420a85972-deportista-trotar.png" />
+            </div>
+            <div class="col-6">
+              <p>Edad</p>
+            </div>
+            <div class="col-6">
+              <p>Estatura</p>
+            </div>
+            <div class="col-6">
+              <p>Peso</p>
+            </div>
+            <div class="col-6">
+              <p>IMC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="card">
+    <h3 class="card-header">Descripción rutina</h3>
+    <div class="card-body">
+      <p>{{ descripcionRutina }}</p>
+    </div>
+  </div>
+</div>

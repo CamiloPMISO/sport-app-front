@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
+import { PlanEnum } from '../models/enums/plan.enum';
 import { PlanService } from './plan.service';
-import { PlanEnum } from './plan.enum';
 
 @Component({
   selector: 'app-plan',
@@ -9,10 +9,9 @@ import { PlanEnum } from './plan.enum';
   styleUrls: ['./plan.component.css'],
 })
 export class PlanComponent implements OnInit {
-
   planActual: string = '';
 
-  constructor(private planService: PlanService,) {}
+  constructor(private planService: PlanService) {}
 
   ngOnInit() {
     this.planActual = 'Gratuito';
@@ -22,39 +21,39 @@ export class PlanComponent implements OnInit {
     const swalWithBootstrapButtons = swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        cancelButton: 'btn btn-danger',
       },
-      buttonsStyling: false
-    })
+      buttonsStyling: false,
+    });
 
-    swalWithBootstrapButtons.fire({
-      title: '¿Estás seguro?',
-      text: `Vas a suscribirte al plan ${plan}`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.value) {
-        var nuevoPlan = this.obtenerPlan(plan);
-        this.planService.updatePlan(nuevoPlan).subscribe(
-          (response: any) => {
+    swalWithBootstrapButtons
+      .fire({
+        title: '¿Estás seguro?',
+        text: `Vas a suscribirte al plan ${plan}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+        reverseButtons: true,
+      })
+      .then(result => {
+        if (result.value) {
+          var nuevoPlan = this.obtenerPlan(plan);
+          this.planService.updatePlan(nuevoPlan).subscribe((response: any) => {
             this.planActual = plan;
             swalWithBootstrapButtons.fire(
               '¡Actualizado!',
               `El plan ha cambiado a ${plan}`,
               'success'
-            )
-          }
-        )
-      }
-    })
+            );
+          });
+        }
+      });
   }
 
   private obtenerPlan(plan: string): string {
     let nuevoValor: string = '';
-    switch(plan) {
+    switch (plan) {
       case 'Gratuito':
         nuevoValor = PlanEnum.FREE;
         break;

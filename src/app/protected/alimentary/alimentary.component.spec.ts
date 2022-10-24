@@ -11,9 +11,8 @@ describe('AlimentaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlimentaryComponent ]
-    })
-    .compileComponents();
+      declarations: [AlimentaryComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
