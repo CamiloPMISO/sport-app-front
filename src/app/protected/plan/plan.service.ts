@@ -10,7 +10,6 @@ import { PlanRequest } from './plan.interface';
   providedIn: 'root',
 })
 export class PlanService {
-
   private urlEndPoint: string = URL_BACKEND + '/athlete/set_plan';
 
   constructor(private http: HttpClient) {}
@@ -19,14 +18,16 @@ export class PlanService {
     let token = localStorage.getItem(TOKEN);
     console.log(token);
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`       
+      Authorization: `Bearer ${token}`,
     });
-    let planRequest: PlanRequest = {plan: plan}
-    return this.http.put(this.urlEndPoint, planRequest, {headers: headers}).pipe(
-      catchError(e => {
-        console.error(e);
-        return throwError(() => new Error(e));
-      })
-    );
+    let planRequest: PlanRequest = { plan: plan };
+    return this.http
+      .put(this.urlEndPoint, planRequest, { headers: headers })
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return throwError(() => new Error(e));
+        })
+      );
   }
 }

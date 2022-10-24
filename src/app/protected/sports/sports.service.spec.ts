@@ -8,7 +8,7 @@ describe('Service: Sports', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [SportsService]
+      providers: [SportsService],
     });
   });
 

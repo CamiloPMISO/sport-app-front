@@ -9,7 +9,12 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/public/auth/auth.service';
 import { Gender, IDType, NutritionType } from './post-register.enums';
-import { City, Country, PostRegisterRequest, Sport } from './post-register.interfaces';
+import {
+  City,
+  Country,
+  PostRegisterRequest,
+  Sport,
+} from './post-register.interfaces';
 import { PostRegisterService } from './post-register.service';
 
 @Component({
@@ -70,15 +75,13 @@ export class PostRegisterComponent implements OnInit {
       preferences: ['', [Validators.required]],
     });
 
-    this.postRegisterService.getCountriesAndCities().subscribe( countries => {
+    this.postRegisterService.getCountriesAndCities().subscribe(countries => {
       this.countries = countries;
-    }
-    );
+    });
 
-    this.postRegisterService.getSports().subscribe( sports => {
+    this.postRegisterService.getSports().subscribe(sports => {
       this.sports = sports;
-    }
-    );
+    });
   }
 
   onCheckboxChange(e: any) {
@@ -105,26 +108,30 @@ export class PostRegisterComponent implements OnInit {
     }
   }
   submit() {
-
-    let athletePostRegister : PostRegisterRequest  = {
-      name : this.formGeneralInfo.value.name,
-      lastName : this.formGeneralInfo.value.lastName,
-      age :  this.formDemograficInfo.value.age,
-      idType : this.getDocumentType(this.formGeneralInfo.value.identificationType),
-      idNumber : this.formGeneralInfo.value.identificationNumber,
-      gender : this.getGender(this.formGeneralInfo.value.gender),
-      weight : this.formSportInfo.value.weight,
-      height : this.formSportInfo.value.height,
-      cityOfBirth : this.formDemograficInfo.value.OriginCity,
-      cityOfResidence : this.formDemograficInfo.value.CurrentCity,
+    let athletePostRegister: PostRegisterRequest = {
+      name: this.formGeneralInfo.value.name,
+      lastName: this.formGeneralInfo.value.lastName,
+      age: this.formDemograficInfo.value.age,
+      idType: this.getDocumentType(
+        this.formGeneralInfo.value.identificationType
+      ),
+      idNumber: this.formGeneralInfo.value.identificationNumber,
+      gender: this.getGender(this.formGeneralInfo.value.gender),
+      weight: this.formSportInfo.value.weight,
+      height: this.formSportInfo.value.height,
+      cityOfBirth: this.formDemograficInfo.value.OriginCity,
+      cityOfResidence: this.formDemograficInfo.value.CurrentCity,
       sports: this.formSportInfo.value.sports,
-      nutritionType :this.getPreferences(this.formNutritionInfo.value.preferences)
-    }
+      nutritionType: this.getPreferences(
+        this.formNutritionInfo.value.preferences
+      ),
+    };
 
-    this.postRegisterService.addAthletePosRegisterData(athletePostRegister).subscribe( (response: any) => {
-      console.log("Hecho")
-      }
-    )
+    this.postRegisterService
+      .addAthletePosRegisterData(athletePostRegister)
+      .subscribe((response: any) => {
+        console.log('Hecho');
+      });
     this.router.navigate(['../../protected/dashboard']);
   }
 
@@ -176,11 +183,13 @@ export class PostRegisterComponent implements OnInit {
     return prefer;
   }
 
-  onSelectedCountryOrigin(countryId : string) {
-    this.citiesOfCountryBirth = this.countries.find(country => country.id === countryId)?.cities || [];
+  onSelectedCountryOrigin(countryId: string) {
+    this.citiesOfCountryBirth =
+      this.countries.find(country => country.id === countryId)?.cities || [];
   }
 
-  onSelectedCountryResidence(countryId : string) {
-    this.citiesOfCountryRecidence = this.countries.find(country => country.id === countryId)?.cities || [];
+  onSelectedCountryResidence(countryId: string) {
+    this.citiesOfCountryRecidence =
+      this.countries.find(country => country.id === countryId)?.cities || [];
   }
 }

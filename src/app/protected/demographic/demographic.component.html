@@ -1,0 +1,47 @@
+<!-- contenido principal y secundario -->
+<p></p>
+<div class="row">
+  <!-- col-12 para celulares y col-md-4 para lo demás  -->
+  <div class="col-12 col-md-4">
+    <div class="card">
+      <h2 class="card-header">Perfil demográfico</h2>
+      <div class="card-body">
+        <google-map width="320" height="320"></google-map>
+      </div>
+    </div>
+  </div>
+  <!-- col-12 para celulares y col-md-8 para lo demás -->
+  <div class="col-12 col-md-8">
+    <div class="card">
+      <h2 class="card-header">Información general</h2>
+      <div class="card-body"></div>
+      <p class="card-text"><b>Edad:</b> {{ user.edad }}</p>
+      <p class="card-text"><b>Estatura:</b> {{ user.estatura }}</p>
+      <p class="card-text"><b>IMC:</b> {{ user.imc }}</p>
+      <p class="card-text"><b>Deportes:</b></p>
+      <ul>
+        <li *ngFor="let sport of user.deportes">
+          {{ sport }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- sección extra -->
+<hr />
+<section>
+  <div class="card">
+    <h2 class="card-header">Descripción del perfil</h2>
+    <div class="card-body">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industrys standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      IpsumBloque Principal
+    </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 export enum NutritionType {
-    NORMAL = 'normal',
-    VEGETARIAN = 'vegetarian',
-    VEGAN = 'vegan',
+  NORMAL = 'normal',
+  VEGETARIAN = 'vegetarian',
+  VEGAN = 'vegan',
 }

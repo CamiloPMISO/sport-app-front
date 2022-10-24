@@ -1,7 +1,7 @@
-import { Athlete } from "./athlete";
+import { Athlete } from './athlete';
 
 export class Sport {
-    id: string;
-    name: string;
-    athletes: Athlete[];
+  id: string;
+  name: string;
+  athletes: Athlete[];
 }

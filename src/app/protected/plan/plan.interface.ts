@@ -1,3 +1,3 @@
 export interface PlanRequest {
-    plan: string;
-  }
+  plan: string;
+}

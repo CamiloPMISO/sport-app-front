@@ -102,7 +102,11 @@
                 <label class="font-weight-bold" for="OriginCountry">
                   País de origen
                 </label>
-                <select #country class="form-control" formControlName="OriginCountry" (change)="onSelectedCountryOrigin(country.value)">
+                <select
+                  #country
+                  class="form-control"
+                  formControlName="OriginCountry"
+                  (change)="onSelectedCountryOrigin(country.value)">
                   <option value="" disabled>
                     Selecciona el país de origen
                   </option>
@@ -123,7 +127,9 @@
                   <option value="" disabled>
                     Selecciona la ciudad de origen
                   </option>
-                  <option *ngFor="let city of citiesOfCountryBirth" value="{{ city.id }}">
+                  <option
+                    *ngFor="let city of citiesOfCountryBirth"
+                    value="{{ city.id }}">
                     {{ city.name }}
                   </option>
                 </select>
@@ -133,10 +139,14 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group mx-sm-3 mb-4">
-                <label  class="font-weight-bold" for="CurrentCountry">
+                <label class="font-weight-bold" for="CurrentCountry">
                   País de residencia
                 </label>
-                <select #countryR  class="form-control" formControlName="CurrentCountry" (change)="onSelectedCountryResidence(countryR.value)">
+                <select
+                  #countryR
+                  class="form-control"
+                  formControlName="CurrentCountry"
+                  (change)="onSelectedCountryResidence(countryR.value)">
                   <option value="" disabled>
                     Selecciona el país de residencia
                   </option>
@@ -157,7 +167,9 @@
                   <option value="" disabled>
                     Selecciona la ciudad de residencia
                   </option>
-                  <option *ngFor="let city of citiesOfCountryRecidence" value="{{ city.id }}">
+                  <option
+                    *ngFor="let city of citiesOfCountryRecidence"
+                    value="{{ city.id }}">
                     {{ city.name }}
                   </option>
                 </select>
