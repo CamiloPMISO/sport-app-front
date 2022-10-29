@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { AuthService } from 'src/app/public/auth/auth.service';
 import { Gender, IDType, NutritionType } from './post-register.enums';
 import {
@@ -130,9 +131,12 @@ export class PostRegisterComponent implements OnInit {
     this.postRegisterService
       .addAthletePosRegisterData(athletePostRegister)
       .subscribe((response: any) => {
-        console.log('Hecho');
+        this.postRegisterService
+          .createTrainingPlan()
+          .subscribe((response: any) => {
+            this.router.navigate(['../../protected/risk']);
+          });
       });
-    this.router.navigate(['../../protected/dashboard']);
   }
 
   private getDocumentType(documentType: string): string {

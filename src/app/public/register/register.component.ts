@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar(user: RegisterRequest) {
-    console.log(user);
     this.authService
       .register(user)
       .pipe(

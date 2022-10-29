@@ -14,13 +14,10 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    console.log('dentro de guard');
     if (this.jwtService.isTokenExpired()) {
-      console.log('expiro');
       this.router.navigate(['public/home']);
       return false;
     } else {
-      console.log('bien');
       return true;
     }
   }

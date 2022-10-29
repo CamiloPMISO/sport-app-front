@@ -31,20 +31,36 @@ export class PostRegisterService {
     return this.http.get<Sport[]>(`${this.urlBack}/sport`);
   }
 
-  addAthletePosRegisterData(data: PostRegisterRequest): Observable<any> {
-    let token = localStorage.getItem(TOKEN);
-    console.log(token);
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
-
+  createTrainingPlan(): Observable<any> {
     return this.http
-      .put(`${this.urlBack}/athlete`, data, { headers: headers })
+      .post(
+        'http://localhost:3002/api/v1/training-plan',
+        {},
+        { headers: this.getHeaders() }
+      )
       .pipe(
         catchError(e => {
           console.error(e);
           return throwError(() => new Error(e));
         })
       );
+  }
+
+  addAthletePosRegisterData(data: PostRegisterRequest): Observable<any> {
+    return this.http
+      .put(`${this.urlBack}/athlete`, data, { headers: this.getHeaders() })
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return throwError(() => new Error(e));
+        })
+      );
+  }
+
+  getHeaders() {
+    let token = localStorage.getItem(TOKEN);
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
   }
 }
