@@ -16,7 +16,6 @@ export class PlanService {
 
   updatePlan(plan: string): Observable<any> {
     let token = localStorage.getItem(TOKEN);
-    console.log(token);
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });

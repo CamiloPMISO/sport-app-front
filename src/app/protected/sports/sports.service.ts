@@ -15,7 +15,6 @@ export class SportsService {
 
   getUserInfo(): Observable<any> {
     let token = localStorage.getItem(TOKEN);
-    console.log(token);
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
