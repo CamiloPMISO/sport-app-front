@@ -20,6 +20,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DemographicComponent } from './demographic/demographic.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgChartsModule } from 'ng2-charts';
+import { CalendarComponent } from './calendar/calendar.component';
+
+import {
+  ScheduleModule,
+  RecurrenceEditorModule,
+} from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,7 @@ import { NgChartsModule } from 'ng2-charts';
     SportsComponent,
     AlimentaryComponent,
     DemographicComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +51,8 @@ import { NgChartsModule } from 'ng2-charts';
     GoogleMapsModule,
     MatExpansionModule,
     NgChartsModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
   ],
 })
 export class ProtectedModule {}

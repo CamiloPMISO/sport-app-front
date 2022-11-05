@@ -3,20 +3,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { TOKEN, URL_BACKEND } from '../../config/config';
+import { TOKEN, URL_BACKEND_ATHLETE } from '../../config/config';
 import { PlanRequest } from './plan.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlanService {
-  private urlEndPoint: string = URL_BACKEND + '/athlete/set_plan';
+  private urlEndPoint: string = URL_BACKEND_ATHLETE + '/athlete/set_plan';
 
   constructor(private http: HttpClient) {}
 
   updatePlan(plan: string): Observable<any> {
     let token = localStorage.getItem(TOKEN);
-    console.log(token);
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });

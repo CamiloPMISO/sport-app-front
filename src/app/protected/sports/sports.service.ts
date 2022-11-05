@@ -3,19 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { TOKEN, URL_BACKEND } from '../../config/config';
+import { TOKEN, URL_BACKEND_ATHLETE } from '../../config/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SportsService {
-  private urlEndPoint: string = URL_BACKEND + '/athlete';
+  private urlEndPoint: string = URL_BACKEND_ATHLETE + '/athlete';
 
   constructor(private http: HttpClient) {}
 
   getUserInfo(): Observable<any> {
     let token = localStorage.getItem(TOKEN);
-    console.log(token);
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });

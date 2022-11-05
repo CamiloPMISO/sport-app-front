@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-import { LoginRequest } from '../interfaces';
+import { LoginRequest, LoginResponse } from '../interfaces';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,13 @@ export class LoginComponent implements OnInit {
       .login(req)
       .pipe(
         // If registration was successfull, then navigate to login route
-        tap(() => this.router.navigate(['../../protected/post-register']))
+        tap((res: LoginResponse) => {
+          let url = '../../protected/post-register';
+          if (res.completed) {
+            url = '../../protected/risk';
+          }
+          this.router.navigate([url]);
+        })
       )
       .subscribe();
   }

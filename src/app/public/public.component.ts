@@ -23,7 +23,6 @@ export class PublicComponent implements OnInit {
 
   ngOnInit(): void {
     let ran = Math.round((Math.random() * 100) % 7);
-    console.log(ran, Math.random() * 100);
     this.backgroundImage = this.images[ran];
   }
 }

@@ -14,15 +14,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#"
+        <a class="nav-link" [routerLink]="['../protected/dashboard']"
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/perfil">Perfil</a>
+        <a class="nav-link" [routerLink]="['../protected/calendar']"
+          >Calendario</a
+        >
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/config">Configuración</a>
+        <a class="nav-link" [routerLink]="['../protected/profiles']"
+          >Perfiles</a
+        >
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['../protected/plans']">Planes</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">

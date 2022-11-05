@@ -27,4 +27,5 @@ Interface for the Login Response (can look different, based on your backend api)
 */
 export interface LoginResponse {
   token: string;
+  completed: boolean;
 }
