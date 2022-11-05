@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
-  HttpRequest,
-  HttpEvent,
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-import { TOKEN, URL_BACKEND } from '../../config/config';
+import { TOKEN, URL_BACKEND_ATHLETE, URL_BACKEND_TRAINING } from '../../config/config';
 import { Sport, TrainingPlan } from './calendar.interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalendarService {
-  private urlBack: string = URL_BACKEND;
+  private urlBack: string = URL_BACKEND_ATHLETE;
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +23,7 @@ export class CalendarService {
 
   getTrainingPlan(): Observable<TrainingPlan> {
     return this.http
-      .get<TrainingPlan>('http://localhost:3002/api/v1/training-plan', {
+      .get<TrainingPlan>(`${URL_BACKEND_TRAINING}/training-plan`, {
         headers: this.getHeaders(),
       })
       .pipe(

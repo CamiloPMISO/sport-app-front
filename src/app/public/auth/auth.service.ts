@@ -1,9 +1,11 @@
-import { LOCALSTORAGE_TOKEN_KEY } from '../../app.module';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { TOKEN, URL_BACKEND_ATHLETE } from '../../config/config';
+
 import {
   LoginRequest,
   LoginResponse,
@@ -15,7 +17,7 @@ import {
   providedIn: 'root',
 })
 export class AuthService {
-  private backUrl: string = 'http://localhost:3000/api/v1';
+  private backUrl: string = URL_BACKEND_ATHLETE;
 
   constructor(
     private http: HttpClient,
@@ -42,7 +44,7 @@ export class AuthService {
       .post<LoginResponse>(`${this.backUrl}/athlete/login`, loginRequest)
       .pipe(
         tap((res: LoginResponse) =>
-          localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.token)
+          localStorage.setItem(TOKEN, res.token)
         )
       );
   }
