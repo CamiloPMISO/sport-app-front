@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <h1 align="center">Crear servicio socio</h1>
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center"></div>
+              <div style="padding-top: 3%">
+                <form [formGroup]="formService" (ngSubmit)='createService(formService.value)'>
+                  <div class="row justify-content-center">
+                    <div class="col-8">
+                    <div class="form-group mx-sm-3 mb-2 pl-5">
+                        <label class="font-weight-bold" for="serviceName"> Nombre del servicio </label>
+                        <input
+                          novalidate
+                          id="serviceName"
+                          class="form-control"
+                          formControlName="serviceName"
+                          placeholder="Nombre del servicio" />
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="col-8">
+                    <div class="form-group mx-sm-3 mb-2 pl-5">
+                        <label class="font-weight-bold" for="sport">
+                          Selecciona el deporte asociado al servicio
+                        </label>
+                        <select class="form-control" formControlName="sport">
+                          <option value="" disabled>
+                            Selecciona el deporte
+                          </option>
+                          <option
+                            *ngFor="let sport of sports"
+                            value="{{ sport }}">
+                            {{ sport }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="col-8">
+                    <div class="form-group mx-sm-3 mb-2 pl-5">
+                        <label class="font-weight-bold" for="serviceType">
+                          Selecciona el tipo de servicio ofrecido
+                        </label>
+                        <select class="form-control" formControlName="serviceType">
+                          <option value="" disabled>
+                            Selecciona el tipo de servicio
+                          </option>
+                          <option
+                            *ngFor="let type of typeServices"
+                            value="{{ type }}">
+                            {{ type }}
+                          </option>
+                        </select>
+                      </div>
+                  </div>
+                </div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="col-8">
+                    <div class="form-group mx-3 mb-4 pl-5">
+                        <label class="font-weight-bold" for="description"> Descripción </label>
+                        <textarea
+                          novalidate
+                          id="description"
+                          class="form-control"
+                          formControlName="description"
+                          placeholder="Descripción" >
+                        </textarea>
+                      </div>
+                  </div>
+                </div>
+                </form>
+                <div class="row justify-content-center">
+                    <div class="col-8 text-start mx-3 mb-2 pl-5 ">
+                        <button class="btn btn-success" (click)="createService(formService.value)" [disabled]="!formService.valid">Crear</button>
+                      </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+</div>
