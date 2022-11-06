@@ -112,7 +112,7 @@ export class PostRegisterComponent implements OnInit {
     let athletePostRegister: PostRegisterRequest = {
       name: this.formGeneralInfo.value.name,
       lastName: this.formGeneralInfo.value.lastName,
-      age: this.formDemograficInfo.value.age,
+      age: this.formSportInfo.value.age,
       idType: this.getDocumentType(
         this.formGeneralInfo.value.identificationType
       ),
