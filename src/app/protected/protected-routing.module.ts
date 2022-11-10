@@ -8,6 +8,7 @@ import { ProtectedComponent } from './protected.component';
 import { PostRegisterComponent } from './post-register/post-register.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { HomeComponent } from './home/home.component';
 
 // Routes for child Module (protectedModule). Since protected module is lazy loaded in in the
 // app-routing.module the full path is `/protected/dashboard`
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'calendar',
         component: CalendarComponent,
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
       },
     ],
   },
