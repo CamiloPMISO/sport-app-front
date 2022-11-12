@@ -18,9 +18,14 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-2 w-150">
-            <h2 class="card-header">Componentes fisicos de riesgo</h2>
+            <h2 class="card-header">Información física relevante</h2>
             <div class="card-body">
               <h2 class="card-title"></h2>
+              <p class="card-text"><b>Genero:</b> {{ user.gender }}</p>
+              <p class="card-text"><b>Edad:</b> {{ user.age }}</p>
+              <p class="card-text"><b>Estatura:</b> {{ user.height }}</p>
+              <p class="card-text"><b>Peso:</b> {{ user.weight }}</p>
+              <p class="card-text"><b>IMC:</b> {{ (user.weight)/((user.height*user.height)/10000) }}</p>
             </div>
           </div>
         </div>
@@ -31,13 +36,11 @@
             <h2 class="card-header">Información deportiva</h2>
             <div class="card-body">
               <h2 class="card-title"></h2>
-              <p class="card-text"><b>Edad:</b> {{ user.edad }}</p>
-              <p class="card-text"><b>Estatura:</b> {{ user.estatura }}</p>
-              <p class="card-text"><b>IMC:</b> {{ user.imc }}</p>
+              <p class="card-text"><b>Tipo Nutricional: </b>{{(user.nutritionType)}}</p>
               <p class="card-text"><b>Deportes:</b></p>
               <ul>
-                <li *ngFor="let sport of user.deportes">
-                  {{ sport }}
+                <li *ngFor="let sport of user.sports">
+                  {{ sport.name }}
                 </li>
               </ul>
             </div>
@@ -59,9 +62,13 @@
         <div class="card-header"></div>
         <div class="card-body">
           <h2 class="card-title">Caracteristicas del plan de riesgo</h2>
-          <p class="card-text">{{ description.desc }}</p>
+          <p class="card-text">{{ risk.features }}</p>
+          <p class="card-text"><b>Limitaciones:</b>{{(risk.limitations)}}</p>
+          <p class="card-text"><b>Como reducir el riesgo:</b>{{(risk.howToReduceIt)}}</p>
         </div>
       </div>
+      <hr>
+      <button type="button" class="btn btn-success" (click)="click()" >Aceptar</button>
     </section>
   </div>
 </div>

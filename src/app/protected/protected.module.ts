@@ -21,6 +21,7 @@ import { DemographicComponent } from './demographic/demographic.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgChartsModule } from 'ng2-charts';
 import { CalendarComponent } from './calendar/calendar.component';
+import { HomeComponent } from './home/home.component';
 
 import {
   ScheduleModule,
@@ -41,6 +42,7 @@ import {
     AlimentaryComponent,
     DemographicComponent,
     CalendarComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

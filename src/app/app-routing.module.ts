@@ -15,6 +15,11 @@ const routes: Routes = [
       import('./protected/protected.module').then(m => m.ProtectedModule),
   },
   {
+    path: 'partner',
+    loadChildren: () =>
+      import('./partner/partner.module').then(m => m.PartnerModule),
+  },
+  {
     // Redirects all paths that are not matching to the 'public' route/path
     path: '**',
     redirectTo: 'public/home',

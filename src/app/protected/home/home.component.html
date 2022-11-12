@@ -1,0 +1,129 @@
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <h3 class="card-header">Información deportista</h3>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="row align-items-center">
+                <div class="col-12">
+              <img
+                class="img-thumbnail rounded"
+                src="./assets/profile-picture-default.png" />
+              </div>
+              <div class="col-12">
+                <p>Nombre usuario</p>
+              </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-6">
+                  <p>Edad</p>
+                </div>
+                <div class="col-6">
+                  <p>Estatura</p>
+                </div>
+                <div class="col-6">
+                  <p>Peso</p>
+                </div>
+                <div class="col-6">
+                  <p>IMC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <h3 class="card-header">Calendario</h3>
+        <div class="card-body">
+          <a [routerLink]="['/protected/calendar']">
+          <img
+          class="profile-picture"
+          src="./assets/calendar.png" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <h3 class="card-header">Enlaces rápidos</h3>
+        <div class="card-body">
+          <a class="btn btn-primary quick-access-button" [routerLink]="['/protected/profiles']" role="button">Ir a perfilamientos</a>
+          <br/>
+          <a class="btn btn-primary quick-access-button" [routerLink]="['/protected/plans']" role="button">Ir a planes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row">
+    <div class="col-9">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="General"></mat-tab>
+        <mat-tab label="Estadisticas"></mat-tab>
+        <mat-tab label="Trofeos"></mat-tab>
+        <mat-tab label="Amigos"></mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <h3 class="card-header">Mis estadisticas</h3>
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="bi bi-bicycle icons-setup"></i>
+            </div>
+            <div class="col">
+              <i class="bi bi-universal-access icons-setup"></i>
+            </div>
+            <div class="col">
+              <i class="bi bi-tsunami icons-setup"></i>
+            </div>
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Salidas</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Distancia promedio</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Tiempo promedio</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Desnivel positivo</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">2021</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Distancia</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Tiempo</th>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Vuelta ciclista</th>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

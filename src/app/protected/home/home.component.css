@@ -1,0 +1,13 @@
+.profile-picture {
+    max-width: 100%;
+  }
+
+.quick-access-button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icons-setup {
+  text-align: center;
+  font-size: 2rem;
+}
