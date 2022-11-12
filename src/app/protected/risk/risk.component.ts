@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
 import { Athlete, Risk } from './risk.interfaces';
 import { RiskService } from './risk.service';
@@ -11,7 +12,7 @@ import { RiskService } from './risk.service';
 export class RiskComponent implements OnInit {
   user: Athlete;
   risk: Risk;
-  constructor(private riskService: RiskService,) {}
+  constructor(private riskService: RiskService, private router: Router) {}
 
   ngOnInit(): void {
     this.riskService.getAthlete().subscribe(
@@ -56,5 +57,9 @@ export class RiskComponent implements OnInit {
         },
       },
     });
+  }
+
+  click(){
+    this.router.navigate(['../../protected/home']);
   }
 }

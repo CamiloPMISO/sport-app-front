@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TOKEN, URL_BACKEND } from '../../config/config';
+import { TOKEN, URL_BACKEND_ATHLETE } from '../../config/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Athlete } from './risk.interfaces';
 
@@ -8,7 +8,7 @@ import { Athlete } from './risk.interfaces';
   providedIn: 'root'
 })
 export class RiskService {
-  private urlBack: string = URL_BACKEND;
+  private urlBack: string = URL_BACKEND_ATHLETE;
 
   constructor(private http: HttpClient) {}
 
