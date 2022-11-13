@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ServicesComponent } from './services/services.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { PartnerComponent } from './partner.component';
+import { DeleteServiceComponent } from './delete-service/delete-service.component';
 
 // Routes for child Module (protectedModule). Since protected module is lazy loaded in in the
 // app-routing.module the full path is `/protected/dashboard`
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'create-service',
         component: CreateServiceComponent,
+      },
+      {
+        path: 'delete-service',
+        component: DeleteServiceComponent,
       },
     ],
   },

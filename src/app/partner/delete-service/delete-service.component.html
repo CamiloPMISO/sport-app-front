@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <h2 class="card-header">Eliminar un servicio</h2>
+                <div class="card-body">
+                    <h3 class="card-title">Nombre del servicio a eliminar</h3>
+                    <p></p>
+                    <div class="form-group">
+                        <select class="form-control" formControlName="service">
+                            <option value="" disabled>
+                              Selecciona el servicio
+                            </option>
+                            <option
+                              *ngFor="let service of services"
+                              value="{{ service }}">
+                              {{ service }}
+                            </option>
+                        </select>
+                    </div>
+                    <p></p>
+                    <a href="#" class="btn btn-success" (click)="deleteService(formService.value)">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
