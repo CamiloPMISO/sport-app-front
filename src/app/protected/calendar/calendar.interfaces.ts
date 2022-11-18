@@ -1,6 +1,7 @@
 export enum ActivityType {
   TRAINING = 'training',
   EVENT = 'event',
+  ROUTE = 'route',
 }
 
 export interface Activity {
@@ -37,6 +38,7 @@ export interface DataSoruce {
   Description: string;
   CategoryColor: string;
   IsReadonly: boolean;
+  CalendarId: number;
 }
 
 export interface Sport {
