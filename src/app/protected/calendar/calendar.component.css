@@ -1,0 +1,36 @@
+/* custom code start*/
+.property-panel-content .e-checkbox-wrapper.personal .e-label {
+    color: #808080;
+  }
+  
+  .property-panel-content .e-checkbox-wrapper.training .e-frame {
+    background-color: #357cd2;
+    border-color: transparent;
+  }
+  
+  .property-panel-content .e-checkbox-wrapper.events .e-frame {
+    background-color: #f57f17;
+    border-color: transparent;
+  }
+    
+  .property-panel-content .e-checkbox-wrapper.routes .e-frame {
+    background-color: #808000;
+    border-color: transparent;
+  }
+  
+  .highcontrast .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
+  .bootstrap .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
+    color: #fff;
+  }
+  
+  /* custom code end*/
+  
+  .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
+  .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
+    width: 110px;
+  }
+  
+  .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-text,
+  .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-text {
+    padding: 0;
+  }

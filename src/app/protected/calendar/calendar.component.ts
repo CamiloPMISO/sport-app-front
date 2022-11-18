@@ -10,7 +10,10 @@ import {
   AgendaService,
   ResizeService,
   DragAndDropService,
+  GroupModel,
+  View
 } from '@syncfusion/ej2-angular-schedule';
+import { ChangeEventArgs } from '@syncfusion/ej2-angular-buttons';
 import { DataSoruce, TrainingDay, ActivityType } from './calendar.interfaces';
 import { CalendarService } from './calendar.service';
 
@@ -36,6 +39,20 @@ export class CalendarComponent implements OnInit {
 
   public eventSettings: EventSettingsModel = { dataSource: [] };
 
+  public group: GroupModel = { resources: ['Calendars'] };
+
+  public allowMultiple = true;
+
+  public currentView: View = 'Month';
+
+  public calendarCollections: Record<string, any>[] = [
+    { CalendarText: 'Entrenamientos', CalendarId: 1, CalendarColor: '#357cd2' },
+    { CalendarText: 'Eventos', CalendarId: 2, CalendarColor: '#f57f17' },
+    { CalendarText: 'Rutas', CalendarId: 3, CalendarColor: '#808000' },
+  ];
+
+  public resourceDataSource: Record<string, any>[] = [this.calendarCollections[0]];
+
   constructor(private calendarService: CalendarService) {}
 
   ngOnInit(): void {
@@ -51,7 +68,21 @@ export class CalendarComponent implements OnInit {
     if (type === ActivityType.EVENT) {
       color = '#f57f17';
     }
+    if (type === ActivityType.ROUTE) {
+      color = '#808000';
+    }
     return color;
+  }
+
+  private getCalendarIdByType(type: string): number {
+    let calendarId: number = 1;
+    if (type === ActivityType.EVENT) {
+      calendarId = 2;
+    }
+    if (type === ActivityType.ROUTE) {
+      calendarId = 3;
+    }
+    return calendarId;
   }
 
   public onEventRendered(args: EventRenderedArgs): void {
@@ -101,10 +132,26 @@ export class CalendarComponent implements OnInit {
           Description: activity.description,
           CategoryColor: this.getColorByType(activity.type),
           IsReadonly: true,
+          CalendarId : this.getCalendarIdByType(activity.type),
         });
       }
     }
 
     return dataSource;
+  }
+
+  public onChange(args : ChangeEventArgs): void {
+
+    const value: number = parseInt((args.event?.currentTarget as Element ).querySelector('input')?.getAttribute('value') || "0")
+
+    const resourceData: Record<string, any>[] =
+    this.calendarCollections.filter((calendar: Record<string, any>) => calendar['CalendarId'] === value);
+
+    if (args.checked) {
+      this.scheduler.addResource(resourceData[0], 'Calendars', value - 1);
+    } else {
+      this.scheduler.removeResource(value, 'Calendars');
+    }
+
   }
 }
