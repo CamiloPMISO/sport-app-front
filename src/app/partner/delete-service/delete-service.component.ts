@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
@@ -13,9 +13,12 @@ export class DeleteServiceComponent implements OnInit {
   formService!: FormGroup;
   services: Array<string> = ['Lavado de útiles deportivos', 'Transporte a lugar de eventos', 'Transporte de biciletas'];
 
-  constructor(private snackbar: MatSnackBar,) { }
+  constructor(private snackbar: MatSnackBar, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formService = this.formBuilder.group({
+      serviceName: ['', [Validators.required,]],
+    });
   }
 
   deleteService(service:any){

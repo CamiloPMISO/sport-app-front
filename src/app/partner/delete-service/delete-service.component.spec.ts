@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DeleteServiceComponent } from './delete-service.component';
 
@@ -8,6 +11,11 @@ describe('DeleteServiceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports : [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        MatSnackBarModule,
+      ],
       declarations: [ DeleteServiceComponent ]
     })
     .compileComponents();

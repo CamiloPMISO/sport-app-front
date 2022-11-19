@@ -6,18 +6,20 @@
                 <div class="card-body">
                     <h3 class="card-title">Nombre del servicio a eliminar</h3>
                     <p></p>
-                    <div class="form-group">
-                        <select class="form-control" formControlName="service">
-                            <option value="" disabled>
-                              Selecciona el servicio
-                            </option>
-                            <option
-                              *ngFor="let service of services"
-                              value="{{ service }}">
-                              {{ service }}
-                            </option>
-                        </select>
-                    </div>
+                    <form [formGroup]="formService" >
+                        <div class="form-group">
+                            <select class="form-control" formControlName="serviceName">
+                                <option value="" disabled>
+                                  Selecciona el servicio
+                                </option>
+                                <option
+                                  *ngFor="let service of services"
+                                  value="{{ service }}">
+                                  {{ service }}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
                     <p></p>
                     <a href="#" class="btn btn-success" (click)="deleteService(formService.value)">Eliminar</a>
                 </div>
