@@ -28,6 +28,9 @@ import {
   RecurrenceEditorModule,
 } from '@syncfusion/ej2-angular-schedule';
 
+import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+import { ActivitiesDashboardComponent } from './activities-dashboard/activities-dashboard.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -43,6 +46,7 @@ import {
     DemographicComponent,
     CalendarComponent,
     HomeComponent,
+    ActivitiesDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +59,7 @@ import {
     NgChartsModule,
     ScheduleModule,
     RecurrenceEditorModule,
+    CheckBoxModule
   ],
 })
 export class ProtectedModule {}

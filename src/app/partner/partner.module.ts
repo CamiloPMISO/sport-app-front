@@ -7,6 +7,7 @@ import { PartnerRoutingModule } from './partner-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteServiceComponent } from './delete-service/delete-service.component';
 
 
 
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ServicesComponent,
     HeaderComponent,
     FooterComponent,
+    DeleteServiceComponent,
   ],
   imports: [
     CommonModule,

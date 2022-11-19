@@ -1,0 +1,45 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Crear nuevo indicador">
+        <form [formGroup]="formService">
+            <div class="form-group">
+                <br>
+                <b><label for="indicadorSelect">Tipo de indicador</label></b>
+                <select class="form-control" formControlName="tipoIndicador">
+                    <option value="" disabled>Selecciona el tipo de indicador</option>
+                    <option *ngFor="let tipo of tipos" value="{{ tipo }}">
+                      {{ tipo }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <b><label for="deporteSelect">Deporte</label></b>
+                <select class="form-control" id="deporte">
+                  <option>Ciclismo</option>
+                  <option>Atletismo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <b><label for="exampleFormControlTextarea1">Calculo de indicador</label></b>
+                <textarea class="form-control" id="formula" rows="3"></textarea>
+            </div>
+        </form>
+    </mat-tab> 
+    <mat-tab label="Indicadores existentes"></mat-tab>
+</mat-tab-group>
+<br />
+<div class="container text-center">
+<div class="row">
+    <div class="col align-self-start"></div>
+    <div class="col align-self-center"></div>
+
+    <div class="col-2 align-self-end">
+    <a
+        class="btn btn-primary"
+        [routerLink]="['/admin']"
+        role="button"
+        >Aceptar</a
+    >
+    </div>
+</div>
+</div>
+  

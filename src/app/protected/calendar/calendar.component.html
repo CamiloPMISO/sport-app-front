@@ -1,16 +1,61 @@
 <div class="container-fluid">
   <h1 align="center">Calendario actividades deportista</h1>
-  <ejs-schedule
-    #schedule
-    width="100%"
-    height="700px"
-    [selectedDate]="selectedDate"
-    [eventSettings]="eventSettings"
-    (eventRendered)="onEventRendered($event)">
-    <e-views>
-      <e-view option="Day"></e-view>
-      <e-view option="Week"></e-view>
-      <e-view option="Month"></e-view>
-    </e-views>
-  </ejs-schedule>
+  <div class="control-section">
+    <div class="row"> 
+      <div class="col-10 content-wrapper">
+        <ejs-schedule
+        #schedule
+        width="100%"
+        height="700px"
+        [selectedDate]="selectedDate"
+        [eventSettings]="eventSettings"
+        [group]="group"
+        [(currentView)]="currentView" 
+        (eventRendered)="onEventRendered($event)">
+        <e-resources>
+          <e-resource field='CalendarId' title='Calendars' [dataSource]='resourceDataSource'
+            [allowMultiple]='allowMultiple' name='Calendars' textField='CalendarText' idField='CalendarId'
+            colorField='CalendarColor'>
+          </e-resource>
+        </e-resources>
+        <e-views>
+          <e-view option="Day"></e-view>
+          <e-view option="Week"></e-view>
+          <e-view option="Month"></e-view>
+        </e-views>
+      </ejs-schedule>
+      </div>
+      <div class="col-2 property-section">
+        <div class="property-panel-section">
+          <div class="property-panel-header">Seleccionar/Ocultar</div>
+          <div class="property-panel-content">
+            <div id="property" class="property-panel-table" title="Properties">
+              <table id="property" title="Properties" style="width: 100%">
+                <tbody>
+                  <tr style="height: 50px">
+                    <td style="width: 100%">
+                      <ejs-checkbox cssClass="training" label="Entrenamientos" value="1" [checked]="true" [disabled]="true"
+                        (change)="onChange($event)"></ejs-checkbox>
+                    </td>
+                  </tr>
+                  <tr style="height: 50px">
+                    <td style="width: 100%">
+                      <ejs-checkbox cssClass="events" label="Eventos" value="2" [checked]="false"
+                        (change)="onChange($event)"></ejs-checkbox>
+                    </td>
+                  </tr>
+                  <tr style="height: 50px">
+                    <td style="width: 100%">
+                      <ejs-checkbox cssClass="routes" label="Rutas" value="3" [checked]="false"
+                        (change)="onChange($event)"></ejs-checkbox>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
