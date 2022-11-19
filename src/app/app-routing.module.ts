@@ -20,6 +20,11 @@ const routes: Routes = [
       import('./partner/partner.module').then(m => m.PartnerModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then(m => m.AdminModule),
+  },
+  {
     // Redirects all paths that are not matching to the 'public' route/path
     path: '**',
     redirectTo: 'public/home',
