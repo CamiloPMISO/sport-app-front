@@ -1,6 +1,6 @@
 <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Crear nuevo indicador">
-        <form>
+        <form [formGroup]="formService">
             <div class="form-group">
                 <br>
                 <b><label for="indicadorSelect">Tipo de indicador</label></b>
