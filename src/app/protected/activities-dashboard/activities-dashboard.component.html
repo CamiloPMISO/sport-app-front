@@ -1,0 +1,67 @@
+
+<div class="container">
+    <div class="row pt-3 pl-3 pr-3 pb-3">
+        <div class="col-4">
+          <div class="card">
+            <h2 class="card-header text-center">Actividades realizadas en el mes</h2>
+            <div class="card-body">
+              <div id="myTraining">
+                <canvas
+                baseChart
+                [type]="'bar'"
+                [datasets]="pieChartDatasetsTraining"
+                [labels]="pieChartLabels"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins"
+                [legend]="pieChartLegend"
+                width="200" height="200"
+                >
+              </canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+              <h2 class="card-header text-center">Tiempo realizado en el mes</h2>
+              <div class="card-body">
+                <div id="myTraining">
+                  <canvas
+                  baseChart
+                  [type]="'bar'"
+                  [datasets]="pieChartDatasetsTime"
+                  [labels]="pieChartLabels"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend"
+                  width="200" height="200"
+                  >
+                </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h2 class="card-header text-center">Distancia recorrida en el mes</h2>
+              <div class="card-body">
+                <div id="myTraining">
+                  <canvas
+                  baseChart
+                  [type]="'bar'"
+                  [datasets]="pieChartDatasetsDistance"
+                  [labels]="pieChartLabels"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend"
+                  width="200" height="200"
+                  >
+                </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div> 
+    
+</div>          
+

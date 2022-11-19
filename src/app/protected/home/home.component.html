@@ -13,24 +13,24 @@
                 class="img-thumbnail rounded"
                 src="./assets/profile-picture-default.png" />
               </div>
-              <div class="col-12">
-                <p>Nombre usuario</p>
+              <div class="col-12 pt-3">
+                <p class="card-text">{{user.name }} {{user.lastName}}</p>
               </div>
               </div>
             </div>
             <div class="col-6">
               <div class="row">
                 <div class="col-6">
-                  <p>Edad</p>
+                  <p class="card-text"><b>Edad:</b> {{ user.age }}</p>
                 </div>
                 <div class="col-6">
-                  <p>Estatura</p>
+                  <p class="card-text"><b>Estatura:</b> {{height}}</p>
                 </div>
                 <div class="col-6">
-                  <p>Peso</p>
+                  <p class="card-text"><b>Peso:</b> {{ weight }}</p>
                 </div>
                 <div class="col-6">
-                  <p>IMC</p>
+                  <p class="card-text"><b>IMC:</b> {{ imc }}</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,9 @@
   <div class="row">
     <div class="col-9">
       <mat-tab-group mat-align-tabs="center">
-        <mat-tab label="General"></mat-tab>
+        <mat-tab label="General">
+          <app-activities-dashboard></app-activities-dashboard>
+        </mat-tab>
         <mat-tab label="Estadisticas"></mat-tab>
         <mat-tab label="Trofeos"></mat-tab>
         <mat-tab label="Amigos"></mat-tab>
@@ -102,10 +104,6 @@
               </tr>
               <tr>
                 <th scope="row">Desnivel positivo</th>
-                <td>0</td>
-              </tr>
-              <tr>
-                <th scope="row">2021</th>
                 <td>0</td>
               </tr>
               <tr>
