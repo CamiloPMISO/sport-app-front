@@ -29,6 +29,7 @@ import {
 } from '@syncfusion/ej2-angular-schedule';
 
 import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+import { ActivitiesDashboardComponent } from './activities-dashboard/activities-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
     DemographicComponent,
     CalendarComponent,
     HomeComponent,
+    ActivitiesDashboardComponent,
   ],
   imports: [
     CommonModule,
