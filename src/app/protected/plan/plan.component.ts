@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
+import { HomeService } from '../home/home.service';
 import { PlanEnum } from '../models/enums/plan.enum';
 import { PlanService } from './plan.service';
 
@@ -11,10 +12,15 @@ import { PlanService } from './plan.service';
 export class PlanComponent implements OnInit {
   planActual: string = '';
 
-  constructor(private planService: PlanService) {}
+  constructor(private planService: PlanService,
+    private homeService: HomeService) {}
 
   ngOnInit() {
-    this.planActual = 'Gratuito';
+    this.homeService.getAthlete().subscribe(
+      athlete => {
+        let plan = athlete.paymentPlan;
+        this.planActual = plan == PlanEnum.FREE ? 'Gratuito' : plan == PlanEnum.MEDIUM ? 'Intermedio' : 'Premium';
+      });
   }
 
   cambiarPlan(plan: string): void {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlimentaryGroup } from './alimentary-group';
 
 import { ChartOptions } from 'chart.js';
+import { HomeService } from '../home/home.service';
+import { Athlete } from '../home/home.interfaces';
 
 @Component({
   selector: 'app-alimentary',
@@ -9,9 +11,24 @@ import { ChartOptions } from 'chart.js';
   styleUrls: ['./alimentary.component.css'],
 })
 export class AlimentaryComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  user: Athlete;
+  imc : number;
+  height : number;
+  weight : number;
+
+  constructor(private homeService: HomeService) {}
+
+  ngOnInit() {    
+    this.homeService.getAthlete().subscribe(
+      athlete => {
+        this.user = athlete;
+        this.height = Math.round(this.user.height);
+        this.weight = Math.round(this.user.weight);
+        this.imc = Math.round((this.user.weight)/((this.user.height*this.user.height)/10000));
+      });
+  }
+
   gruposAlimentos: AlimentaryGroup[] = [
     new AlimentaryGroup('Grupo 1', 'Banano, Piña, Manzana'),
   ];
