@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteServiceComponent } from './delete-service/delete-service.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 
 
@@ -19,6 +20,7 @@ import { DeleteServiceComponent } from './delete-service/delete-service.componen
     HeaderComponent,
     FooterComponent,
     DeleteServiceComponent,
+    ActivitiesComponent,
   ],
   imports: [
     CommonModule,
