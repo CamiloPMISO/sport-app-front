@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         tap((res: LoginResponse) => {
           let url = '../../protected/post-register';
           if (res.completed) {
-            url = '../../protected/risk';
+            url = '../../protected/home';
           }
           this.router.navigate([url]);
         })
