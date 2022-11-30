@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class DeleteServiceComponent implements OnInit {
   formService!: FormGroup;
   services: Array<string> = ['Lavado de útiles deportivos', 'Transporte a lugar de eventos', 'Transporte de biciletas'];
 
-  constructor(private snackbar: MatSnackBar, private formBuilder: FormBuilder) { }
+  constructor(private snackbar: MatSnackBar, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.formService = this.formBuilder.group({
@@ -28,6 +29,11 @@ export class DeleteServiceComponent implements OnInit {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     })
+    this.router.navigate(['../../partner/activities']);
+  }
+
+  public cancel(){
+    this.router.navigate(['../../partner/activities']);
   }
 
 }

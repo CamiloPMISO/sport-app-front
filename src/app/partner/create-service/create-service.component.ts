@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-service',
@@ -13,7 +14,7 @@ export class CreateServiceComponent implements OnInit {
   sports: Array<string> = ['Atletismo', 'Ciclismo'];
   typeServices: Array<string> = ['Alimentación', 'Transporte', 'Deportología'];
 
-  constructor( private formBuilder: FormBuilder, private snackbar: MatSnackBar,) { }
+  constructor( private formBuilder: FormBuilder, private snackbar: MatSnackBar,  private router: Router) { }
 
   ngOnInit(): void {
     this.formService = this.formBuilder.group({
@@ -31,6 +32,11 @@ export class CreateServiceComponent implements OnInit {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     })
+    this.router.navigate(['../../partner/activities']);
+  }
+
+  public cancel(){
+    this.router.navigate(['../../partner/activities']);
   }
 
 }
